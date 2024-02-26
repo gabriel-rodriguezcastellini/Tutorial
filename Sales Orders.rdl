@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.9.34616.47</am:Version>
+      <am:Version>17.9.34607.119</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-02-26T02:44:26.4428547Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-02-26T13:19:41.5014058Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -17,38 +17,26 @@
     <DataSource Name="AdventureWorks2022">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=.\SQL2023;Initial Catalog=AdventureWorks2022;TrustServerCertificate=True</ConnectString>
+        <ConnectString>Data Source=LAPTOP-75PLAUOF;Initial Catalog=AdventureWorks2022;TrustServerCertificate=True</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>fbfc7a2c-0be6-4ed9-ae72-8ed0edf034f9</rd:DataSourceID>
+      <rd:DataSourceID>5cd0f778-a384-4f01-863c-443abdd478f4</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="AdventureWorksDataset">
       <Query>
         <DataSourceName>AdventureWorks2022</DataSourceName>
-        <CommandText>SELECT
-   soh.OrderDate AS [Date],
-   soh.SalesOrderNumber AS [Order],
-   pps.Name AS [Subcat],
-   pp.Name as [Product],
-   SUM(sd.OrderQty) AS [Qty],
-   SUM(sd.LineTotal) AS [LineTotal]
-FROM Sales.SalesPerson sp
-INNER JOIN Sales.SalesOrderHeader AS soh
-      ON sp.BusinessEntityID = soh.SalesPersonID
-   INNER JOIN Sales.SalesOrderDetail AS sd
-      ON sd.SalesOrderID = soh.SalesOrderID
-   INNER JOIN Production.Product AS pp
-      ON sd.ProductID = pp.ProductID
-   INNER JOIN Production.ProductSubcategory AS pps
-      ON pp.ProductSubcategoryID = pps.ProductSubcategoryID
-   INNER JOIN Production.ProductCategory AS ppc
-      ON ppc.ProductCategoryID = pps.ProductCategoryID
-GROUP BY ppc.Name, soh.OrderDate, soh.SalesOrderNumber, pps.Name, pp.Name,soh.SalesPersonID  
-HAVING ppc.Name = 'Clothing'</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT soh.OrderDate AS Date, soh.SalesOrderNumber AS [Order], pps.Name AS Subcat, pp.Name AS Product, SUM(sd.OrderQty) AS Qty, SUM(sd.LineTotal) AS LineTotal
+FROM   Sales.SalesPerson AS sp INNER JOIN
+             Sales.SalesOrderHeader AS soh ON sp.BusinessEntityID = soh.SalesPersonID INNER JOIN
+             Sales.SalesOrderDetail AS sd ON sd.SalesOrderID = soh.SalesOrderID INNER JOIN
+             Production.Product AS pp ON sd.ProductID = pp.ProductID INNER JOIN
+             Production.ProductSubcategory AS pps ON pp.ProductSubcategoryID = pps.ProductSubcategoryID INNER JOIN
+             Production.ProductCategory AS ppc ON ppc.ProductCategoryID = pps.ProductCategoryID
+GROUP BY ppc.Name, soh.OrderDate, soh.SalesOrderNumber, pps.Name, pp.Name, soh.SalesPersonID
+HAVING (ppc.Name = 'Clothing')</CommandText>
       </Query>
       <Fields>
         <Field Name="Date">
