@@ -7,7 +7,7 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.9.34616.47</am:Version>
+      <am:Version>17.9.34607.119</am:Version>
     </am:UpdatedBy>
     <am:LastModifiedTimestamp>2024-02-27T09:56:01.5959037Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
@@ -17,11 +17,11 @@
     <DataSource Name="AdventureWorks2022">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=.\SQL2023;Initial Catalog=AdventureWorks2022;TrustServerCertificate=True</ConnectString>
+        <ConnectString>Data Source=LAPTOP-75PLAUOF;Initial Catalog=AdventureWorks2022;TrustServerCertificate=True</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>fbfc7a2c-0be6-4ed9-ae72-8ed0edf034f9</rd:DataSourceID>
+      <rd:DataSourceID>5cd0f778-a384-4f01-863c-443abdd478f4</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
